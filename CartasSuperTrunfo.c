@@ -4,12 +4,14 @@ int main() {
     char estado1, estado2;
     char codigo1[4], codigo2[4];
     char nomeCidade1[50], nomeCidade2[50];
-    int populacao1, populacao2;
+    unsigned long populacao1, populacao2;
     float area1, area2;
     float pib1, pib2;
     int pontoTuristico1, pontoTuristico2;
     float densPop1, densPop2;
     float pibPerCapta1, pibPerCapta2;
+    float super1, super2;
+    
 
     //Dados Carta 1
     printf("Insira o estado da Carta 1: ");
@@ -37,6 +39,8 @@ int main() {
 
     pibPerCapta1 = (pib1*1000000000/populacao1);
 
+    super1 = populacao1 + area1 + pib1 + pontoTuristico1 + pibPerCapta1 + (1/densPop1);
+
     //Dados Carta 2
     printf("Insira o estado da Carta 2: ");
     scanf(" %c", &estado2);
@@ -63,6 +67,8 @@ int main() {
 
     pibPerCapta2 = (pib2*1000000000/populacao2);
 
+    super2 = populacao2 + area2 + pib2 + pontoTuristico2 + pibPerCapta2 + (1/densPop2);
+
     //Print carta 1
     printf("\nCarta 1:\n");
     printf("Estado: %c\n", estado1);
@@ -74,6 +80,7 @@ int main() {
     printf("Número de Pontos Turísticos: %d\n", pontoTuristico1);
     printf("Densidade Populacional: %0.2f\n", densPop1);
     printf("PIB per capita: %0.2f reais\n", pibPerCapta1);
+    printf("Super Poder: %0.2f\n", super1);
 
     //Print carta 2
     printf("\nCarta 2:\n");
@@ -86,6 +93,18 @@ int main() {
     printf("Número de Pontos Turísticos: %d\n", pontoTuristico2);
     printf("Densidade Populacional: %0.2f\n", densPop2);
     printf("PIB per capita: %0.2f reais\n", pibPerCapta2);
+    printf("Super Poder: %0.2f\n", super2);
+
+    //Comparação das cartas
+    printf("\nComparação de cartas:\n");
+    printf("População: %d\n", (populacao1 > populacao2));
+    printf("Área: %d\n", (area1 > area2));
+    printf("PIB: %d\n", (pib1 > pib2));
+    printf("Número de Pontos Turísticos: %d\n", (pontoTuristico1 > pontoTuristico2));
+    printf("Densidade Populacional: %d\n", (densPop1 < densPop2));
+    printf("PIB per capita: %d\n", (pibPerCapta1 > pibPerCapta2));
+    printf("Super Poder: %d\n", (super1 > super2));
+
 
     return 0;
 }
